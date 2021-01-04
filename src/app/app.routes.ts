@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'artist/:id', component: ArtistComponent },
-  { path: 'album/:id', component: AlbumComponent },
+	{ path: 'album/:id', component: AlbumComponent },
+	{ path: '**', redirectTo: '/'}
 ];
 
 export const AppRouting: ModuleWithProviders<RouterModule> = RouterModule.forRoot(

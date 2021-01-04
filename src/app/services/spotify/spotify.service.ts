@@ -18,7 +18,8 @@ export class SpotifyService {
   private body: HttpParams;
   public token: IToken;
 
-  constructor(private _http: HttpClient) {}
+	constructor(private _http: HttpClient) {}
+	
   getToken(): Observable<IToken> {
     this.Url = `https://accounts.spotify.com/api/token`;
 
@@ -32,17 +33,18 @@ export class SpotifyService {
     return this._http
       .post(this.Url, this.body, { headers: this.headers })
       .pipe(map((token: any) => token));
-  }
-
+	}
+	
   searchArtists(searchTerm: string): Observable<IArtist[]> {
     this.Url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=artist`;
 
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${this.token?.access_token}`,
-    });
+		});
+		
     return this._http
-      .get(this.Url, { headers: this.headers })
+			.get(this.Url, { headers: this.headers })
       .pipe(map((res: any) => res.artists.items));
   }
 
@@ -53,7 +55,6 @@ export class SpotifyService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${this.token?.access_token}`,
     });
-
     return this._http
       .get(this.Url, { headers: this.headers })
       .pipe(map((res: any) => res));
