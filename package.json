@@ -4,7 +4,7 @@
   "homepage": "https://abv-solutions.github.io/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build --prod --output-path docs --base-href=/angular-spotify-api/",
     "test": "ng test",
     "lint": "ng lint",
